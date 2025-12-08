@@ -15,7 +15,7 @@ const tokenConfig = {
   },
 }
 
-axios.get('http://localhost:8080/users', tokenConfig).then((res) => {
+axios.get('https://api-users-smoky.vercel.app/users', tokenConfig).then((res) => {
   console.log(res)
   data.user = res.data
 })
@@ -37,7 +37,7 @@ const toggleModal = (id, name) => {
 
 const deleteUser = () => {
   axios
-    .delete(`http://localhost:8080/user/${data.idUser}`, tokenConfig)
+    .delete(`https://api-users-smoky.vercel.app/user/${data.idUser}`, tokenConfig)
     .then(() => {
       data.showModal = false
 
