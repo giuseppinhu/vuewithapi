@@ -16,7 +16,7 @@ const AdminAuth = (to, from, next) => {
     }
 
     axios
-      .post('http://localhost:8080/validate', {}, tokenConfig)
+      .post('https://api-users-smoky.vercel.app/validate', {}, tokenConfig)
       .then((res) => {
         console.log(res.response)
         next()

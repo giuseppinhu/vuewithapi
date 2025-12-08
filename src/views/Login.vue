@@ -13,7 +13,7 @@ const form = reactive({
 
 const login = () => {
   axios
-    .post('http://localhost:8080/login', {
+    .post('https://api-users-smoky.vercel.app/login', {
       email: form.email,
       password: form.password,
     })

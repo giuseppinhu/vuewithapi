@@ -14,7 +14,7 @@ const form = reactive({
 
 const register = () => {
   axios
-    .post('http://localhost:8080/user', {
+    .post('https://api-users-smoky.vercel.app/user', {
       email: form.email,
       name: form.name,
       password: form.password,

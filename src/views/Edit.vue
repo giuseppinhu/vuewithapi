@@ -21,7 +21,7 @@ const form = reactive({
 form.id = router.currentRoute.value.params.id
 
 axios
-  .get(`http://localhost:8080/user/${form.id}`, tokenConfig)
+  .get(`https://api-users-smoky.vercel.app/user/${form.id}`, tokenConfig)
   .then((res) => {
     console.log(res)
     form.name = res.data.name
@@ -35,7 +35,7 @@ axios
 const update = () => {
   axios
     .put(
-      `http://localhost:8080/user/`,
+      `https://api-users-smoky.vercel.app/user/`,
       {
         id: form.id,
         email: form.email,
