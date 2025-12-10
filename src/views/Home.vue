@@ -148,6 +148,17 @@
             Acessar →
           </button>
         </div>
+
+        <div class="route-card">
+          <h3>/logged</h3>
+          <p>Página para mostra infomações do usuário - acessada só a após logar.</p>
+          <button
+            class="button is-link is-light is-fullwidth route-button"
+            @click="$router.push('/logged')"
+          >
+            Acessar →
+          </button>
+        </div>
       </div>
     </section>
 

@@ -85,7 +85,7 @@ const router = createRouter({
       component: ChangePassword,
     },
     {
-      path: '/home/user',
+      path: '/logged',
       beforeEnter: TokenActive,
       component: HomeUser,
     },

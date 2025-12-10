@@ -9,7 +9,7 @@
           style="height: 100%; margin: auto; display: block"
         />
       </div>
-      <button class="nav-btn" @click="goToLogin">Entrar</button>
+      <button class="nav-btn" @click="logout">Sair</button>
     </nav>
 
     <!-- HERO -->
@@ -17,7 +17,7 @@
       <div class="hero-content">
         <h1 class="hero-title">Bem-vindo, {{ data.user.name }}!</h1>
         <p class="hero-text">Você está logado como: {{ data.user.email }}</p>
-        <p class="hero-text">{{ data.user.role === 1 ? 'Administrador' : 'Usuário' }}</p>
+        <p class="hero-text">Seu cargo: {{ data.user.role === 1 ? 'Administrador' : 'Usuário' }}</p>
         <button class="hero-btn" @click="goToHome">Home</button>
       </div>
     </section>
@@ -27,6 +27,7 @@
       <p><strong>ID:</strong>{{ data.user.id }}</p>
       <p><strong>Nome:</strong>{{ data.user.name }}</p>
       <p><strong>Email:</strong>{{ data.user.email }}</p>
+      <button class="btn" @click="goToRecover">Alterar senha</button>
     </div>
 
     <!-- FOOTER -->
@@ -43,6 +44,7 @@ import axios from 'axios'
 const router = useRouter()
 
 const goToHome = () => router.push('/')
+const goToRecover = () => router.push('/recoverpassword')
 
 var data = reactive({
   user: {},
@@ -60,6 +62,11 @@ axios
   .catch((err) => {
     console.log(err)
   })
+
+const logout = () => {
+  localStorage.removeItem('token')
+  router.push('/')
+}
 </script>
 
 <style scoped>
@@ -152,6 +159,19 @@ axios
   width: 210px;
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
   animation: float 3s infinite ease-in-out;
+}
+
+.btn {
+  display: block;
+  padding: 10px 20px;
+  margin: 10px 5px 0 0;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #6d28d9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 /* Floating animation */
