@@ -6,6 +6,9 @@ import Login from '@/views/Login.vue'
 import Home from '@/views/Home.vue'
 import Users from '@/views/Users.vue'
 import Edit from '@/views/Edit.vue'
+import RecoverPassword from '@/views/RecoverPassword.vue'
+import ChangePassword from '@/views/ChangePassword.vue'
+import HomeUser from '@/views/HomeUser.vue'
 
 const AdminAuth = (to, from, next) => {
   if (localStorage.getItem('token') != undefined) {
@@ -27,6 +30,22 @@ const AdminAuth = (to, from, next) => {
       })
   } else {
     next('/login')
+  }
+}
+
+const TokenActive = (to, from, next) => {
+  if (localStorage.getItem('token') != undefined) {
+    next()
+  } else {
+    next('/login')
+  }
+}
+
+const TokenRecoverActive = (to, from, next) => {
+  if (localStorage.getItem('token-recover') != undefined) {
+    next()
+  } else {
+    next('/recoverpassword')
   }
 }
 
@@ -55,6 +74,20 @@ const router = createRouter({
     {
       path: '/login',
       component: Login,
+    },
+    {
+      path: '/recoverpassword',
+      component: RecoverPassword,
+    },
+    {
+      path: '/changepassword',
+      beforeEnter: TokenRecoverActive,
+      component: ChangePassword,
+    },
+    {
+      path: '/home/user',
+      beforeEnter: TokenActive,
+      component: HomeUser,
     },
   ],
 })

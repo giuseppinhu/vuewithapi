@@ -126,6 +126,28 @@
             Acessar →
           </button>
         </div>
+
+        <div class="route-card">
+          <h3>/recoverpassword</h3>
+          <p>Página para recuperação de senha.</p>
+          <button
+            class="button is-link is-light is-fullwidth route-button"
+            @click="$router.push('/recoverpassword')"
+          >
+            Acessar →
+          </button>
+        </div>
+
+        <div class="route-card">
+          <h3>/changepassword</h3>
+          <p>Página para alterar a senha - acessada só a após recuperar a senha.</p>
+          <button
+            class="button is-link is-light is-fullwidth route-button"
+            @click="$router.push('/changepassword')"
+          >
+            Acessar →
+          </button>
+        </div>
       </div>
     </section>
 
